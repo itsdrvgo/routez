@@ -44,6 +44,41 @@ We still don't have a proper way to load CSS in the rendered HTML. So, you can't
 4. Run `pnpm build` to build the project, it will transpile the TypeScript code to JavaScript and put it in the `build` directory.
 5. Run `pnpm start` to start the server in production mode.
 
+## Configuration
+
+The configuration is done in the `createRouter` function in [here](/src/lib/index.ts#L23). This function is invoked in the [app.ts](/src/app.ts) file. The `createRouter` function takes two arguments,
+
+| Option               | Type      | Default                           | Description                                 | Required |
+| -------------------- | --------- | --------------------------------- | ------------------------------------------- | -------- |
+| `app`                | `Express` | `undefined`                       | The Express app instance.                   | Yes      |
+| `options`            | `Options` | `{}`                              | The options object.                         | No       |
+| `options.direrctory` | `string`  | `path.join(process.cwd(), "app")` | The directory where the routes are located. | No       |
+
+If you want to change the directory where the routes are located, you can do it by changing the `options.directory` option. Here's an example,
+
+```ts
+// ... Your existing imports ...
+import path from "path";
+import express from "express";
+import { createRouter } from "./lib";
+
+export function createApp() {
+    const app = express();
+
+    // ... Your existing code ...
+
+    createRouter(app, {
+        directory: path.join(process.cwd(), "routes"),
+    });
+
+    // ... Your existing code ...
+
+    return app;
+}
+```
+
+Now, all the routes will be loaded from the `routes` directory instead of the `app` directory.
+
 ## Routes
 
 The routes are defined in the `app` directory. Here's how you can define a route:
@@ -96,6 +131,32 @@ app
 -   The name of the directory must be the same as the name of the dynamic parameter.
 -   You can access the dynamic parameter using `req.params.userId` inside the `route.ts` file.
 -   See [here](/src/app/api/users/[userId]/route.ts) for an example.
+
+## Adding Middleware
+
+You can,
+
+-   Add middleware to the whole application by adding it to the `app.use` function in the [app.ts](/src/app.ts) file.
+-   Or add middleware to a specific route by converting the exported function to an array of functions. See [here](/src/app/api/uploads/route.ts) for an example.
+
+    ```ts
+    import { Request, Response } from "express";
+    import multer from "multer";
+
+    const upload = multer({ dest: "uploads/" });
+
+    export const POST = [
+        upload.single("file"),
+        (req: Request, res: Response) => {
+            res.json({
+                file: req.file,
+            });
+        },
+    ];
+    ```
+
+-   Thus, the `POST` function is now an array of functions. The first function is the `multer` middleware and the second function is the actual route handler.
+-   You can add as many middleware as you want. Just make sure that the last function is the actual route handler.
 
 ## React Support
 
