@@ -13,7 +13,6 @@ const userSchema = z.object({
 export function POST(req: Request, res: Response) {
     try {
         const data = req.body;
-        const images = req.files as Express.Multer.File[];
 
         const { username, email } = userSchema.parse(data);
 
@@ -23,19 +22,9 @@ export function POST(req: Request, res: Response) {
             data: {
                 username,
                 email,
-                files: images.map((image) => image.originalname),
             },
         });
     } catch (e) {
         return handleError(e, res);
     }
-}
-
-export function GET(req: Request, res: Response) {
-    const userId = req.params.userId;
-
-    res.status(200).json({
-        message: "Hello World!",
-        userId,
-    });
 }

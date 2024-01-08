@@ -2,8 +2,13 @@ import React from "react";
 
 export default function Page() {
     return (
-        <div className="bg-black">
-            <h1>Heading</h1>
+        <div
+            style={{
+                backgroundColor: "black",
+                color: "white",
+            }}
+        >
+            <h1>Hello</h1>
         </div>
     );
 }

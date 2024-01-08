@@ -1,9 +1,14 @@
 import { Request, Response } from "express";
+import { CResponse } from "../../../../utils";
 
 export function GET(req: Request, res: Response) {
     const userId = req.params.userId;
 
-    res.status(200).json({
-        userId,
+    return CResponse({
+        res,
+        message: "OK",
+        data: {
+            userId,
+        },
     });
 }
