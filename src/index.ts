@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import { createApp } from "./app";
+import { DEFAULT_PORT } from "./lib/const";
 import { Logger } from "./logger";
 
 dotenv.config();
@@ -7,8 +8,10 @@ dotenv.config();
 export const logger = new Logger();
 const app = createApp();
 
-const server = app.listen(process.env.PORT, () => {
-    logger.info("File server started on port " + process.env.PORT);
+const port = process.env.PORT ?? DEFAULT_PORT;
+
+const server = app.listen(port, () => {
+    logger.info("File server started on port " + port);
 });
 
 export { server, app };

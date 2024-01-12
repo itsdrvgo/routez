@@ -1,13 +1,12 @@
 {
     "name": "express-ts-template",
     "version": "1.0.0",
-    "description": "A template for express with typescript",
+    "description": "A ready-to-go Express template with Next.JS like file based routing!",
     "scripts": {
         "dev": "cross-env NODE_ENV=development nodemon",
         "build": "rimraf build && tsc",
         "lint": "eslint --ext .ts src",
-        "start": "cross-env NODE_ENV=production node --env-file=.env build/index.js",
-        "test": "jest"
+        "start": "cross-env NODE_ENV=production node --env-file=.env build/index.js"
     },
     "type": "commonjs",
     "keywords": [
@@ -19,7 +18,12 @@
         "multer",
         "zod",
         "rate-limit",
-        "cors"
+        "cors",
+        "file-based-routing",
+        "nextjs",
+        "next.js",
+        "next",
+        "nextjs-like"
     ],
     "author": "DRVGO",
     "license": "ISC",

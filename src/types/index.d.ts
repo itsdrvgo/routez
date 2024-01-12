@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 const ENV_VARS = z.object({
-    PORT: z.string().default("3001"),
+    PORT: z.string().min(1),
 });
 
 ENV_VARS.parse(process.env);

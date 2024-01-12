@@ -12,10 +12,8 @@
     "include": [
         "src/**/*.ts",
         "src/routes/**/*.tsx",
-        "tailwind.config.ts"
     ],
     "exclude": [
         "node_modules",
-        "src/tests/"
     ]
 }

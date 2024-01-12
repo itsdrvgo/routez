@@ -1,6 +1,7 @@
 import path from "path";
 import { isCjs } from "./methods";
 
+export const DEFAULT_PORT = 3001;
 export const IS_ESM = !isCjs();
 export const MODULE_IMPORT_PREFIX = IS_ESM ? "file://" : "";
 
