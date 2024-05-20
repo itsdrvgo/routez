@@ -99,7 +99,7 @@ If you're interested in NextJS or you've already used it in past, you'll feel ri
 
 ## Configuration
 
-The configuration is done in the `createRouter` function in [here](/src/index.ts#L21). This function is invoked in the [app.ts](/examples/src/app.ts#L15) file. The `createRouter` function takes two arguments,
+The configuration is done in the `createRouter` function in [here](/src/index.ts#L21). This function is invoked in the [app.ts](https://github.com/itsdrvgo/routez/blob/master/examples/src/app.ts#L15) file. The `createRouter` function takes two arguments,
 
 | Option               | Type      | Default                           | Description                                 | Required |
 | -------------------- | --------- | --------------------------------- | ------------------------------------------- | -------- |
@@ -134,7 +134,7 @@ Now, all the routes will be loaded from the `routes` directory instead of the `a
 
 ## Routes
 
-The routes are defined in the [`examples/src/app`](/examples/src/app/api) directory. Here's how you can define a route:
+The routes are defined in the [`examples/src/app`](https://github.com/itsdrvgo/routez/blob/master/examples/src/app/api) directory. Here's how you can define a route:
 
 ```
 src
@@ -154,15 +154,15 @@ src
 -   The `api` directory is the root directory for all the API routes. Although, you can change this name to anything you want.
 -   The `users` directory is a route for the `/users` path.
 -   The `route.ts` file is the entry point for the `/users` path.
-    -   See [here](/examples/src/app/api/users/route.ts) for an example.
+    -   See [here](https://github.com/itsdrvgo/routez/blob/master/examples/src/app/api/users/route.ts) for an example.
 -   The `[userId]` directory is a route for the `/users/:userId` path.
     -   The `:userId` is a dynamic parameter. You can access it using `req.params.userId`.
-    -   See [here](/examples/src/app/api/users/[userId]/route.ts) for an example.
+    -   See [here](https://github.com/itsdrvgo/routez/blob/master/examples/src/app/api/users/[userId]/route.ts) for an example.
 -   Files that are inside the `api` directory must follow the rules written below,
     -   The file must be named as `route.ts/route.js`. This is the entry point for the route.
     -   The file named `route.ts` must not have a default export.
     -   These files can have named exports (GET, POST, PUT, DELETE, etc.).
-    -   See [here](/examples/src/app/api/users/route.ts) for an example.
+    -   See [here](https://github.com/itsdrvgo/routez/blob/master/examples/src/app/api/users/route.ts) for an example.
 
 ## Defining Dynamic Routes
 
@@ -171,14 +171,14 @@ src
 -   For example, to define a dynamic route for `/users/:userId`, create a directory named `[userId]` inside the `users` directory.
 -   The name of the directory must be the same as the name of the dynamic parameter.
 -   You can access the dynamic parameter using `req.params.userId` inside the `route.ts` file.
--   See [here](/examples/src/app/api/users/[userId]/route.ts) for an example.
+-   See [here](https://github.com/itsdrvgo/routez/blob/master/examples/src/app/api/users/[userId]/route.ts) for an example.
 
 ## Adding Middleware
 
 You can,
 
--   Add middleware to the whole application by adding it to the `app.use` function in the [app.ts](/examples/src/app.ts) file.
--   Or add middleware to a specific route by converting the exported function to an array of functions. See [here](/examples/src/app/api/uploads/route.ts) for an example.
+-   Add middleware to the whole application by adding it to the `app.use` function in the [app.ts](https://github.com/itsdrvgo/routez/blob/master/examples/src/app.ts) file.
+-   Or add middleware to a specific route by converting the exported function to an array of functions. See [here](https://github.com/itsdrvgo/routez/blob/master/examples/src/app/api/uploads/route.ts) for an example.
 
     ```ts
     import { Request, Response } from "express";
