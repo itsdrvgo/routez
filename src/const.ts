@@ -1,7 +1,6 @@
 import path from "path";
-import { isCjs } from "./methods";
+import { isCjs } from "./methods.js";
 
-export const DEFAULT_PORT = 3001;
 export const IS_ESM = !isCjs();
 export const MODULE_IMPORT_PREFIX = IS_ESM ? "file://" : "";
 
@@ -15,7 +14,7 @@ export const PROJECT_DIRECTORY = CJS_MAIN_FILENAME
     : process.cwd();
 
 export const ROUTE_CONFIG = {
-    VALID_FILE_EXTENSIONS: [".js", ".ts", ".mjs", ".tsx", ".jsx"],
+    VALID_FILE_EXTENSIONS: [".js", ".ts", ".mjs"],
     INVALID_NAME_SUFFIXES: [".d.ts"],
     IGNORE_PREFIX_CHAR: "_",
     DEFAULT_METHODS: [

@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
+import type { Request, Response } from "express";
 import { z } from "zod";
-import { CResponse, handleError } from "../../../utils";
+import { CResponse, handleError } from "../../../lib/utils";
 
 const userSchema = z.object({
     username: z

@@ -1,6 +1,0 @@
-{
-    "watch": ["src"],
-    "ext": "ts,tsx",
-    "exec": "ts-node ./src/index.ts",
-    "ignore": ["node_modules", "build", "uploads"]
-}

@@ -1,8 +1,9 @@
+import path from "path";
 import BP from "body-parser";
 import cors from "cors";
 import express from "express";
-import { createRouter } from "./lib";
-import { initiateErrorHandler } from "./utils";
+import { createRouter } from "../../src/index.js";
+import { initiateErrorHandler } from "./lib/utils.js";
 
 export function createApp() {
     const app = express();
@@ -11,7 +12,9 @@ export function createApp() {
     app.use(BP.json());
     app.use(cors());
 
-    createRouter(app);
+    createRouter(app, {
+        directory: path.join(__dirname, "app"),
+    });
     initiateErrorHandler();
 
     return app;

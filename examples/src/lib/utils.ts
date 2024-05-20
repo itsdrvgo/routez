@@ -1,8 +1,8 @@
 import { init } from "@paralleldrive/cuid2";
-import { Response } from "express";
+import type { Response } from "express";
 import { ZodError } from "zod";
-import { logger } from "./index";
-import { ResponseMessages } from "./validations/response";
+import { logger } from "../index.js";
+import type { ResponseMessages } from "./validations/response.js";
 
 export const generateId = init({
     length: 16,

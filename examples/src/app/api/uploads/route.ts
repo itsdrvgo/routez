@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
+import type { Request, Response } from "express";
 import multer from "multer";
 import { z } from "zod";
-import { handleError } from "../../../utils";
+import { handleError } from "../../../lib/utils";
 
 const upload = multer({ dest: "uploads/" });
 

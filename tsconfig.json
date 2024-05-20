@@ -1,19 +1,10 @@
 {
+    "extends": "@total-typescript/tsconfig/tsc/no-dom/library",
     "compilerOptions": {
-        "jsx": "react",
-        "target": "ES6",
-        "module": "CommonJS",
-        "outDir": "./build",
-        "strict": true,
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true
+        "outDir": "./dist",
+        "declarationDir": "./dist",
+        "declaration": true,
+        "sourceMap": true
     },
-    "include": [
-        "src/**/*.ts",
-        "src/routes/**/*.tsx",
-    ],
-    "exclude": [
-        "node_modules",
-    ]
+    "exclude": ["node_modules", "dist", "examples", "tests"]
 }

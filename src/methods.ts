@@ -1,25 +1,10 @@
-import { ParsedPath } from "path";
-import { Request, Response } from "express";
-import { createElement } from "react";
-import { renderToString } from "react-dom/server";
-import { ROUTE_CONFIG } from "./const";
-import { MethodExport } from "./types";
+import type { ParsedPath } from "path";
+import { ROUTE_CONFIG } from "./const.js";
+import type { MethodExport } from "./types.js";
 
 export function isCjs() {
     return typeof module !== "undefined" && !!module?.exports;
 }
-
-export function renderElement(element: any, req: Request, res: Response) {
-    const html = renderToString(
-        createElement(element, {
-            req,
-            res,
-        })
-    );
-
-    res.send(html);
-}
-
 export function buildRoute(parsedFile: ParsedPath) {
     const directory = parsedFile.dir === parsedFile.root ? "" : parsedFile.dir;
     const name = parsedFile.name.startsWith("route")

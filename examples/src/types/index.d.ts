@@ -1,10 +1,5 @@
 import { z } from "zod";
-
-const ENV_VARS = z.object({
-    PORT: z.string().min(1),
-});
-
-ENV_VARS.parse(process.env);
+import { ENV_VARS } from "../lib/validations/env";
 
 declare global {
     namespace NodeJS {
