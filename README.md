@@ -92,6 +92,8 @@ If you're interested in NextJS or you've already used it in past, you'll feel ri
 
 8.  That's it! You've successfully created your first route using Routez. 🎉
 
+> If you're using `routez` with JavaScript, make sure to use `import` statements instead of `require` statements. This package does not support CommonJS modules.
+
 ## Features
 
 -   **File-based Routing (similar to NextJS)**: No more route imports! Just create a new file in the `app` directory and it will be automatically registered as a route.
