@@ -2,16 +2,18 @@ import type { ParsedPath } from "path";
 import { ROUTE_CONFIG } from "./const.js";
 import type { MethodExport } from "./types.js";
 
+export const IS_ESM = !isCjs();
+export const MODULE_IMPORT_PREFIX = IS_ESM ? "file://" : "";
+
 export function isCjs() {
     return typeof module !== "undefined" && !!module?.exports;
 }
+
 export function buildRoute(parsedFile: ParsedPath) {
     const directory = parsedFile.dir === parsedFile.root ? "" : parsedFile.dir;
     const name = parsedFile.name.startsWith("route")
         ? parsedFile.name.replace("route", "")
-        : parsedFile.name.startsWith("page")
-          ? parsedFile.name.replace("page", "")
-          : parsedFile.name;
+        : parsedFile.name;
 
     return directory + name;
 }

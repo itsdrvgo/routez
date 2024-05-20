@@ -1,8 +1,4 @@
 import path from "path";
-import { isCjs } from "./methods.js";
-
-export const IS_ESM = !isCjs();
-export const MODULE_IMPORT_PREFIX = IS_ESM ? "file://" : "";
 
 export const DEFAULT_ROUTER_DIRECTORY = "app";
 

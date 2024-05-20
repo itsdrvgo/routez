@@ -3,7 +3,6 @@ import path from "path";
 import type { Express } from "express";
 import {
     DEFAULT_ROUTER_DIRECTORY,
-    MODULE_IMPORT_PREFIX,
     PROJECT_DIRECTORY,
     ROUTE_CONFIG,
 } from "./const.js";
@@ -15,6 +14,7 @@ import {
     getMethodKey,
     isFileIgnored,
     mergePaths,
+    MODULE_IMPORT_PREFIX,
 } from "./methods.js";
 import type { File, Route, RouterOptions } from "./types.js";
 
@@ -91,26 +91,7 @@ async function generateRoutes(files: File[]) {
         );
 
         if (parsedFile.name.startsWith("route") && exports.default)
-            throw new Error(
-                `Route '${route}' must not have a default export, default exports are reserved for page routes`
-            );
-
-        if (parsedFile.name.startsWith("page")) {
-            if (!exports.default || exports.default.name !== "Page")
-                throw new Error(
-                    `Route '${route}' must have a default export of type Page`
-                );
-
-            const hasValidMethods = ROUTE_CONFIG.DEFAULT_METHODS.some(
-                (method) =>
-                    exports[method.toUpperCase()] &&
-                    typeof exports[method.toUpperCase()] === "function"
-            );
-            if (hasValidMethods)
-                throw new Error(
-                    `Route '${route}' is a page route and must not contain any methods, only a default export of type Page`
-                );
-        }
+            throw new Error(`Route '${route}' must not have a default export`);
 
         routes.push({
             url,
