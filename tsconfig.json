@@ -6,5 +6,12 @@
         "declaration": true,
         "sourceMap": true
     },
-    "exclude": ["node_modules", "dist", "examples", "tests", "rollup.config.js"]
+    "exclude": [
+        "node_modules",
+        "dist",
+        "examples",
+        "tests",
+        "rollup.config.js",
+        "eslint.config.js"
+    ]
 }
