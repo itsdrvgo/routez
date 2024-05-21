@@ -14,7 +14,6 @@ import {
     getMethodKey,
     isFileIgnored,
     mergePaths,
-    MODULE_IMPORT_PREFIX,
 } from "./methods.js";
 import type { File, Route, RouterOptions } from "./types.js";
 
@@ -87,7 +86,7 @@ async function generateRoutes(files: File[]) {
         const priority = calculatePriority(url);
 
         const exports = await import(
-            MODULE_IMPORT_PREFIX + path.join(file.path, file.name)
+            "file://" + path.join(file.path, file.name)
         );
 
         if (parsedFile.name.startsWith("route") && exports.default)
