@@ -1,74 +1,74 @@
 {
-  "name": "routez",
-  "version": "0.1.0",
-  "description": "Next.JS like file-based routing for Express.js",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/itsdrvgo/routez.git"
-  },
-  "keywords": [
-    "routez",
-    "express",
-    "typescript",
-    "template",
-    "api",
-    "file-upload",
-    "multer",
-    "zod",
-    "rate-limit",
-    "cors",
-    "file-based-routing",
-    "nextjs",
-    "next.js",
-    "next",
-    "nextjs-like"
-  ],
-  "type": "module",
-  "exports": "./dist/index.js",
-  "files": [
-    "dist",
-    "LICENSE",
-    "README.md",
-    "package.json"
-  ],
-  "engines": {
-    "node": ">=18.17.0"
-  },
-  "author": {
-    "name": "itsdrvgo",
-    "url": "https://itsdrvgo.me/"
-  },
-  "scripts": {
-    "dev": "cd examples && bun run dev",
-    "build": "tsc",
-    "lint": "eslint --ext .ts src",
-    "lint:fix": "bun run lint --fix",
-    "start": "bun run build && bun run dist/index.js",
-    "start:ex": "cd examples && bun run start",
-    "pub:beta": "bun run build && npm publish --tag beta",
-    "pub:next": "bun run build && npm publish --tag next",
-    "pub:release": "bun run build && npm publish"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.3.0",
-    "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
-    "@total-typescript/tsconfig": "^1.0.4",
-    "@types/body-parser": "^1.19.5",
-    "@types/bun": "latest",
-    "@types/cors": "^2.8.17",
-    "@types/express": "^4.17.21",
-    "@types/multer": "^1.4.11",
-    "@types/node": "^20.12.12",
-    "eslint": "^9.3.0",
-    "eslint-config-prettier": "^9.1.0",
-    "globals": "^15.3.0",
-    "prettier": "^3.2.5",
-    "typescript-eslint": "^7.10.0"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0",
-    "express": "4.19.2"
-  },
-  "module": "index.ts"
+    "name": "routez",
+    "version": "0.1.0",
+    "description": "Next.JS like file-based routing for Express.js",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/itsdrvgo/routez.git"
+    },
+    "keywords": [
+        "routez",
+        "express",
+        "typescript",
+        "template",
+        "api",
+        "file-upload",
+        "multer",
+        "zod",
+        "rate-limit",
+        "cors",
+        "file-based-routing",
+        "nextjs",
+        "next.js",
+        "next",
+        "nextjs-like"
+    ],
+    "type": "module",
+    "exports": "./dist/index.js",
+    "files": [
+        "dist",
+        "LICENSE",
+        "README.md",
+        "package.json"
+    ],
+    "engines": {
+        "node": ">=18.17.0"
+    },
+    "author": {
+        "name": "itsdrvgo",
+        "url": "https://itsdrvgo.me/"
+    },
+    "scripts": {
+        "dev": "cd examples && bun run dev",
+        "build": "tsc",
+        "lint": "eslint --ext .ts src",
+        "lint:fix": "bun run lint --fix",
+        "start": "bun run build && bun run dist/index.js",
+        "start:ex": "cd examples && bun run start",
+        "pub:beta": "bun run build && npm publish --tag beta",
+        "pub:next": "bun run build && npm publish --tag next",
+        "pub:release": "bun run build && npm publish"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.3.0",
+        "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
+        "@total-typescript/tsconfig": "^1.0.4",
+        "@types/body-parser": "^1.19.5",
+        "@types/bun": "latest",
+        "@types/cors": "^2.8.17",
+        "@types/express": "^4.17.21",
+        "@types/multer": "^1.4.11",
+        "@types/node": "^20.12.12",
+        "eslint": "^9.3.0",
+        "eslint-config-prettier": "^9.1.0",
+        "globals": "^15.3.0",
+        "prettier": "^3.2.5",
+        "typescript-eslint": "^7.10.0"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0",
+        "express": "4.19.2"
+    },
+    "module": "index.ts"
 }
