@@ -6,5 +6,5 @@
         "declaration": true,
         "sourceMap": true
     },
-    "exclude": ["node_modules", "dist", "examples", "tests"]
+    "exclude": ["node_modules", "dist", "examples", "tests", "rollup.config.js"]
 }
